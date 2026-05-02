@@ -41,5 +41,6 @@ export type MenuCategoryApi = {
 
 export type FullMenuApiResponse = {
   restaurant_slug: string
+  restaurant_name: string
   categories: MenuCategoryApi[]
 }

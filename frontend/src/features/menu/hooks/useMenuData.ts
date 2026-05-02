@@ -10,6 +10,7 @@ import type {
 
 type MenuState = {
   restaurantSlug: string
+  restaurantName: string
   categories: MenuCategory[]
   items: MenuItem[]
 }
@@ -71,6 +72,7 @@ export function useMenuData(restaurantSlug: string) {
         if (isMounted) {
           setData({
             restaurantSlug: payload.restaurant_slug,
+            restaurantName: payload.restaurant_name,
             categories,
             items,
           })

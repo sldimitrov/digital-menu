@@ -11,6 +11,7 @@ type MenuViewProps = {
 export function MenuView({ restaurantSlug }: MenuViewProps) {
   const { data, isLoading, error } = useMenuData(restaurantSlug)
 
+  const restaurantName = data?.restaurantName ?? 'Restaurant'
   const categories = data?.categories ?? []
   const items = data?.items ?? []
   const { activeCategory, setActiveCategory, filteredItems, categoryCount } = useMenuFilter({
@@ -19,14 +20,14 @@ export function MenuView({ restaurantSlug }: MenuViewProps) {
   })
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Stack spacing={3}>
+    <Container maxWidth="sm" sx={{ py: { xs: 2, sm: 4 } }}>
+      <Stack spacing={2.5}>
         <Stack spacing={1}>
-          <Typography variant="h4" sx={{ fontWeight: 800 }}>
-            Restaurant Menu
+          <Typography variant="h4">
+            {restaurantName}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Live data from backend menu API.
+            Menu for {restaurantSlug}
           </Typography>
         </Stack>
 

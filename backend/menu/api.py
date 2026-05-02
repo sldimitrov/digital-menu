@@ -33,6 +33,7 @@ class CategorySerializer(serializers.Serializer):
 
 class FullMenuSerializer(serializers.Serializer):
     restaurant_slug = serializers.SlugField()
+    restaurant_name = serializers.CharField()
     categories = CategorySerializer(many=True)
 
 

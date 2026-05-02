@@ -17,6 +17,7 @@ def get_full_menu(restaurant_slug: str, request: HttpRequest | None = None) -> d
 
     return {
         "restaurant_slug": restaurant.slug,
+        "restaurant_name": restaurant.name,
         "categories": [
             {
                 "id": category.id,
