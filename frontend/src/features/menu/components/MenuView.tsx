@@ -1,13 +1,18 @@
-import { Container, Divider, Paper, Stack, Typography } from '@mui/material'
-import { mockCategories, mockItems } from '../data/mockMenu'
+import { Alert, CircularProgress, Container, Divider, Paper, Stack, Typography } from '@mui/material'
 import { useMenuFilter } from '../hooks/useMenuFilter'
+import { useMenuData } from '../hooks/useMenuData'
 import { CategoryFilter } from './CategoryFilter'
 import { MenuItemGrid } from './MenuItemGrid'
 
 export function MenuView() {
+  const restaurantSlug = import.meta.env.VITE_RESTAURANT_SLUG ?? 'burzo-hranene'
+  const { data, isLoading, error } = useMenuData(restaurantSlug)
+
+  const categories = data?.categories ?? []
+  const items = data?.items ?? []
   const { activeCategory, setActiveCategory, filteredItems, categoryCount } = useMenuFilter({
-    categories: mockCategories,
-    items: mockItems,
+    categories,
+    items,
   })
 
   return (
@@ -18,14 +23,22 @@ export function MenuView() {
             Restaurant Menu
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Browse by category and view items. This structure is ready for backend data and item
-            images.
+            Live data from backend menu API.
           </Typography>
         </Stack>
 
+        {isLoading && (
+          <Stack direction="row" sx={{ alignItems: 'center', gap: 1 }}>
+            <CircularProgress size={20} />
+            <Typography variant="body2">Loading menu...</Typography>
+          </Stack>
+        )}
+
+        {error && <Alert severity="error">{error}</Alert>}
+
         <Paper variant="outlined" sx={{ p: 2 }}>
           <CategoryFilter
-            categories={mockCategories}
+            categories={categories}
             activeCategory={activeCategory}
             onChange={setActiveCategory}
           />

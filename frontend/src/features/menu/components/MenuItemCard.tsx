@@ -45,7 +45,7 @@ export function MenuItemCard({ item }: MenuItemCardProps) {
             <Typography variant="h6" sx={{ fontWeight: 700 }}>
               {item.name}
             </Typography>
-            <Chip color="primary" label={`$${item.price.toFixed(2)}`} />
+            <Chip color="primary" label={`$${(item.priceCents / 100).toFixed(2)}`} />
           </Stack>
           <Typography variant="body2" color="text.secondary">
             {item.description}
