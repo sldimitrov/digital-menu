@@ -18,7 +18,7 @@ class MenuItemSerializer(serializers.Serializer):
     slug = serializers.SlugField()
     description = serializers.CharField(allow_blank=True)
     price_cents = serializers.IntegerField()
-    image_url = serializers.URLField(allow_blank=True)
+    image_url = serializers.URLField(allow_null=True, required=False)
     sort_order = serializers.IntegerField()
     modifiers = ModifierSerializer(many=True)
 
@@ -41,7 +41,7 @@ class FullMenuView(APIView):
     permission_classes: list = []
 
     def get(self, request, restaurant_slug: str):
-        payload = get_full_menu(restaurant_slug)
+        payload = get_full_menu(restaurant_slug, request=request)
         serializer = FullMenuSerializer(payload)
         return Response(serializer.data)
 
