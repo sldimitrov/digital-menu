@@ -4,8 +4,11 @@ import { useMenuData } from '../hooks/useMenuData'
 import { CategoryFilter } from './CategoryFilter'
 import { MenuItemGrid } from './MenuItemGrid'
 
-export function MenuView() {
-  const restaurantSlug = import.meta.env.VITE_RESTAURANT_SLUG ?? 'burzo-hranene'
+type MenuViewProps = {
+  restaurantSlug: string
+}
+
+export function MenuView({ restaurantSlug }: MenuViewProps) {
   const { data, isLoading, error } = useMenuData(restaurantSlug)
 
   const categories = data?.categories ?? []
