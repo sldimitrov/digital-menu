@@ -10,6 +10,10 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ("name", "slug", "restaurant__slug", "restaurant__name")
     ordering = ("restaurant", "sort_order", "name")
 
+    prepopulated_fields = {
+        "slug": ("name",)
+    }
+
 
 @admin.register(MenuItem)
 class MenuItemAdmin(admin.ModelAdmin):
@@ -25,6 +29,9 @@ class MenuItemAdmin(admin.ModelAdmin):
     search_fields = ("name", "slug", "category__name", "restaurant__slug")
     ordering = ("restaurant", "category", "sort_order", "name")
 
+    prepopulated_fields = {
+        "slug": ("name",)
+    }
 
 @admin.register(Modifier)
 class ModifierAdmin(admin.ModelAdmin):
