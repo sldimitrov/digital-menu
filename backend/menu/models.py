@@ -54,7 +54,7 @@ class MenuItem(TimeStampedModel):
     slug = models.SlugField(max_length=140)
     description = models.TextField(blank=True)
     price_cents = models.PositiveIntegerField()
-    image_url = models.URLField(blank=True)
+    image = models.ImageField(upload_to='menu_items/', null=True, blank=True)
     sort_order = models.PositiveIntegerField(default=0)
     is_available = models.BooleanField(default=True)
 
