@@ -11,7 +11,7 @@ type MenuViewProps = {
 export function MenuView({ restaurantSlug }: MenuViewProps) {
   const { data, isLoading, error } = useMenuData(restaurantSlug)
 
-  const restaurantName = data?.restaurantName ?? 'Restaurant'
+  const restaurantName = data?.restaurantName ?? 'Ресторант'
   const categories = data?.categories ?? []
   const items = data?.items ?? []
   const { activeCategory, setActiveCategory, filteredItems, categoryCount } = useMenuFilter({
@@ -27,14 +27,14 @@ export function MenuView({ restaurantSlug }: MenuViewProps) {
             {restaurantName}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Menu for {restaurantSlug}
+            Меню за {restaurantSlug}
           </Typography>
         </Stack>
 
         {isLoading && (
           <Stack direction="row" sx={{ alignItems: 'center', gap: 1 }}>
             <CircularProgress size={20} />
-            <Typography variant="body2">Loading menu...</Typography>
+            <Typography variant="body2">Менюто зарежда...</Typography>
           </Stack>
         )}
 
@@ -52,10 +52,10 @@ export function MenuView({ restaurantSlug }: MenuViewProps) {
 
         <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="h6" sx={{ fontWeight: 700 }}>
-            Menu Items
+            Меню
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {filteredItems.length} items • {categoryCount} categories
+            {filteredItems.length} броя • {categoryCount} категории
           </Typography>
         </Stack>
 

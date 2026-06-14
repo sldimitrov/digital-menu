@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import CharField
 
 from restaurants.models import Restaurant
 
@@ -66,7 +67,7 @@ class MenuItem(TimeStampedModel):
             ),
         ]
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.name
 
     def clean(self):

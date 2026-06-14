@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 export function NotFoundPage() {
   return (
     <main className="page">
-      <h1>Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
-      <Link to="/">Back to home</Link>
+      <h1>Страницата не е открита</h1>
+      <p>Страницата, която търсите изглежда не съществува.</p>
+      <Link to="/">Обрано към началната страница</Link>
     </main>
   )
 }

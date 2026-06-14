@@ -10,7 +10,7 @@ export function MenuItemGrid({ items }: MenuItemGridProps) {
   if (items.length === 0) {
     return (
       <Typography variant="body1" color="text.secondary">
-        No menu items found for this category.
+        Не са открити предложения от тази категория
       </Typography>
     )
   }

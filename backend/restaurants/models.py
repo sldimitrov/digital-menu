@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import CharField
+
 
 class TimeStampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -16,5 +18,5 @@ class Restaurant(TimeStampedModel):
     class Meta:
         ordering = ["name"]
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.name
