@@ -6,15 +6,15 @@ export function HomePage() {
     <Container maxWidth="md" sx={{ py: 8 }}>
       <Stack spacing={3} sx={{ alignItems: 'flex-start' }}>
         <Typography variant="h3" sx={{ fontWeight: 800 }}>
-          Welcome to Digital Menu
+          Добре дошли в дигиталните менюта
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Select a restaurant by using its slug in the URL, for example
+          Изберете ресторант като използвате Slug оператора в url-a, например
           {' '}
           <strong>/restaurant-one</strong>.
         </Typography>
         <Button component={Link} to="/burzo-hranene" variant="contained" size="large">
-          Open sample menu
+          Отвори примерно меню
         </Button>
       </Stack>
     </Container>

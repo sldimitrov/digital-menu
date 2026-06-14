@@ -21,7 +21,7 @@ export function CategoryFilter({
   return (
     <Stack spacing={1.5}>
       <Typography variant="h6" sx={{ fontWeight: 700 }}>
-        Categories
+        Категории
       </Typography>
       <ToggleButtonGroup
         color="primary"
